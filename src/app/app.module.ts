@@ -7,6 +7,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import { FlashMessagesModule } from 'angular2-flash-messages'; 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -42,7 +44,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FlashMessagesModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
