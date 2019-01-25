@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <a routerLink="/" class="btn btn-link">
+    <a routerLink="/dashboard" class="btn btn-link">
       <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
     </a>
   </div>
@@ -32,7 +32,7 @@
           </small>
         </h3>
         <div class="clearfix">
-          <form *ngIf="showBalanceUpdateInput" 1submit)="updateBalance()">
+          <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance()">
             <div class="input-group">
               <input type="text" name="balance" class="form-control" [(ngModel)]="client.balance">
               <span class="input-group-btn">

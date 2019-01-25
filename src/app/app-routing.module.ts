@@ -12,11 +12,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { RegisterGuard } from './guards/register.guard';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: '', component: LoginComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate:[RegisterGuard]},
   {path: 'client/add', component: AddClientComponent},
   {path: 'client/edit/:id', component: EditClientComponent, canActivate:[AuthGuard]},
 
@@ -31,6 +32,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthGuard]
+  providers: [AuthGuard, RegisterGuard]
 })
 export class AppRoutingModule { }

@@ -13,7 +13,7 @@ export class ClientDetailsComponent implements OnInit {
   id: string;
   client: Client;
   hasBalance: boolean = false;
-  showBalanceUpdateInput: boolean = false;
+  showBalanceUpdateInput: boolean;
 
   constructor(
     private clientService: ClientService,
@@ -23,6 +23,7 @@ export class ClientDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showBalanceUpdateInput = false;
     // Get id from url
     this.id = this.route.snapshot.params['id'];
     // Get client
@@ -43,7 +44,7 @@ export class ClientDetailsComponent implements OnInit {
     this.flashMessage.show('Client successfully removed', {
       cssClass: 'alert-success', timeout: 4000
     });
-    this.router.navigate(['/'])
+    this.router.navigate(['/dashboard'])
     }
   }
 
